@@ -178,10 +178,10 @@ int main()
 	gpuErrchk(cudaMalloc(&d_prefixsum, (N+1)*sizeof(unsigned)));
 
 	cudaEvent_t start;
-    cudaEvent_t stop;
-    cudaEventCreate(&start);
-    cudaEventCreate(&stop);
-    cudaEventRecord(start, 0);
+    	cudaEvent_t stop;
+    	cudaEventCreate(&start);
+    	cudaEventCreate(&stop);
+    	cudaEventRecord(start, 0);
 	while(true){
 		loop++;
 		TRIMMING(VF,EF,VB,EB);
@@ -214,10 +214,10 @@ int main()
 	}
 
 	cudaEventRecord(stop,0);
-    cudaEventSynchronize(stop);
-    float time;
-    cudaEventElapsedTime(&time,start,stop);
-    printf("time is %f\n",time);
+    	cudaEventSynchronize(stop);
+    	float time;
+    	cudaEventElapsedTime(&time,start,stop);
+   	printf("time is %f\n",time);
 	printf("%u\n", loop);
 	
 	gpuErrchk(cudaFree(d_r));
